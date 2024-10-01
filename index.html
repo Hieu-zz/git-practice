@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git Introduction</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Git Introduction</a>
+            <h1>This line created in branch main</h1>
+            <h1>This new line created in branch main</h1>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About Git</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#commands">Git Commands</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="bg-primary text-white text-center p-5">
+        <div class="container">
+            <h1 class="display-4">Learn Git, the Distributed Version Control System</h1>
+            <p class="lead">Master Git, track your projects efficiently, and collaborate seamlessly with others.</p>
+            <a href="#about" class="btn btn-light btn-lg">Get Started</a>
+        </div>
+    </section>
+
+    <!-- About Git Section -->
+    <section id="about" class="p-5">
+        <div class="container">
+            <h2 class="text-center">What is Git?</h2>
+            <p class="lead text-center">Git is a free and open-source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.</p>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            <h5 class="card-title">Distributed System</h5>
+                            <p class="card-text">Git enables multiple developers to work on a project concurrently, each maintaining their own copy of the codebase.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            <h5 class="card-title">Tracking Changes</h5>
+                            <p class="card-text">Git tracks every change made to your code, allowing you to go back to any point in time and review or revert changes.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            <h5 class="card-title">Collaboration</h5>
+                            <p class="card-text">Git facilitates collaboration, enabling teams to work together efficiently on projects by merging different branches and resolving conflicts.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Git Commands Section -->
+    <section id="commands" class="bg-light p-5">
+        <div class="container">
+            <h2 class="text-center">Common Git Commands</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card bg-white">
+                        <div class="card-body">
+                            <h5 class="card-title">git init</h5>
+                            <p class="card-text">Initializes a new Git repository in your project folder.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-white">
+                        <div class="card-body">
+                            <h5 class="card-title">git add</h5>
+                            <p class="card-text">Adds your file changes to the staging area in preparation for committing.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-white">
+                        <div class="card-body">
+                            <h5 class="card-title">git commit</h5>
+                            <p class="card-text">Saves your staged changes into the repository with a commit message.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-white mt-4">
+                        <div class="card-body">
+                            <h5 class="card-title">git pull</h5>
+                            <p class="card-text">Fetches updates from a remote repository and merges them into your current branch.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-white mt-4">
+                        <div class="card-body">
+                            <h5 class="card-title">git push</h5>
+                            <p class="card-text">Uploads your local commits to a remote repository, like GitHub or GitLab.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-white mt-4">
+                        <div class="card-body">
+                            <h5 class="card-title">git clone</h5>
+                            <p class="card-text">Creates a copy of a Git repository from a remote source to your local machine.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="p-5">
+        <div class="container">
+            <h2 class="text-center">Contact Us</h2>
+            <p class="lead text-center">Have questions? Feel free to reach out using the form below!</p>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <form onsubmit="submitForm(event)">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center p-4">
+        <p>&copy; 2024 Git Introduction Website. All Rights Reserved.</p>
+        <p>Follow us on 
+            <a href="https://twitter.com" class="text-white">Twitter</a> | 
+            <a href="https://github.com" class="text-white">GitHub</a> | 
+            <a href="https://linkedin.com" class="text-white">LinkedIn</a>
+        </p>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+
+            if (name && email && message) {
+                alert("Thank you, " + name + "! Your message has been received.");
+                document.querySelector("form").reset();
+            } else {
+                alert("Please fill out all fields.");
+            }
+        }
+    </script>
+</body>
+</html>
