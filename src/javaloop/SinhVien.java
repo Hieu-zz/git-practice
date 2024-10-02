@@ -1,9 +1,21 @@
 package javaloop;
 
 public class SinhVien {
-    String name, className;
+    int id;
+    String name, lop;
     int age;
     String dob;
+
+    public SinhVien() {
+    }
+
+    public SinhVien(int id, String name, String lop, int age, String dob) {
+        this.id = id;
+        this.name = name;
+        this.lop = lop;
+        this.age = age;
+        this.dob = dob;
+    }
 
     public String getDob() {
         return dob;
@@ -21,6 +33,14 @@ public class SinhVien {
         this.age = age;
     }
 
+    public String getLop() {
+        return lop;
+    }
+
+    public void setLop(String lop) {
+        this.lop = lop;
+    }
+
     public String getName() {
         return name;
     }
@@ -29,11 +49,22 @@ public class SinhVien {
         this.name = name;
     }
 
-    public String getClassName() {
-        return className;
+    public int getId() {
+        return id;
     }
 
-    public void setClassName(String className) {
-        this.className = className;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "SinhVien{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", lop='" + lop + '\'' +
+                ", age=" + age +
+                ", dob='" + dob + '\'' +
+                '}';
     }
 }
