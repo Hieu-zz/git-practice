@@ -1,8 +1,10 @@
+import javaloop.FindMaxNumber;
+
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+     /*   Scanner scanner = new Scanner(System.in);
         System.out.println("Width: ");
         double width = scanner.nextDouble();
         System.out.println("Height: ");
@@ -12,6 +14,8 @@ public class Main {
         System.out.println("Dien tich nguyen la: " + (int) dienTich);
         System.out.println("Chu vi nguyen la: " + (int) chuVi);
         System.out.println("Dien tich thuc la:  " +  String.format("%.3f", dienTich));
-        System.out.println("Chu vi thuc la: " +String.format("%.3f", chuVi));
+        System.out.println("Chu vi thuc la: " +String.format("%.3f", chuVi)); */
+        FindMaxNumber findMaxNumber = new FindMaxNumber();
+        findMaxNumber.findMaxNumber();
     }
 }
