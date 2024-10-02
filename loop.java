@@ -23,6 +23,11 @@ public static void main(String[] args) {
             max = num;
         }
     }
+    for (int num : list) {
+        if (num == max) {
+            count++;
+        }
+    }
     if (count > 1) {
         System.out.println("So lon nhat bang nhau: " + max);
     } else {
