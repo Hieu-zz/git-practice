@@ -32,7 +32,8 @@ public class Test3 {
                     System.out.println("Loi so chia phai khac 0");
                 } else {
                     double thuong = a/b;
-                    System.out.println("thuong hai so " + thuong);
+                    System.out.println("thuong hai so ");
+                    System.out.printf("%.3f",thuong);
                 }
                 break;
             default:
