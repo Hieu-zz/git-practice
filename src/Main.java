@@ -1,3 +1,4 @@
+import javaloop.CheckDoiXung;
 import javaloop.CheckKey;
 import javaloop.FindMaxNumber;
 import javaloop.MathNumber;
@@ -24,7 +25,10 @@ public class Main {
 //        MathNumber mathNumber = new MathNumber();
 //        mathNumber.TinhGiaTri();
 
-        CheckKey checkKey = new CheckKey();
-        checkKey.findKey();
+//        CheckKey checkKey = new CheckKey();
+//        checkKey.findKey();
+
+        CheckDoiXung check = new CheckDoiXung();
+        check.check();
     }
 }
