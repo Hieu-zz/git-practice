@@ -1,3 +1,5 @@
+package Bai1;
+
 import java.util.Scanner;
 
 public class JavaLoop {
