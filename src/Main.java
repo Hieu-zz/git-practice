@@ -15,7 +15,7 @@ public class Main {
         double cv = (int)((cd+cr)*2);
         double dt = (int)(cd*cr);
 
-        //in ra
+        //in ra ...
         System.out.printf("cv = %.3f\t dt = %.3f", cv, dt);
     }
 }
