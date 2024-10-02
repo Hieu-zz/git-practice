@@ -20,7 +20,7 @@ public class Test2 {
             max = c;
         }
         System.out.println("So lon nhat " + max);
-        if (max == b || max == c) {
+        if ((max == b || max == c) || ( max == b && max ==c)) {
             System.out.println("So lon nhat bang nhau");
         }
 
