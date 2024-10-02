@@ -7,7 +7,6 @@ public class Student {
     private String lop;
     private int age;
     private String DOB;
-    private static List<Student> studentList=new ArrayList<>();
 
     public Student() {
     }
@@ -60,30 +59,5 @@ public class Student {
     public void setDOB(String DOB) {
         this.DOB = DOB;
     }
-    public String toString(Student student){
-        return "Id: "+student.getId()+" Ten: "+student.getName()+" Tuoi: "+student.getAge()+" Lop: "+student.getLop()+" Ngay sinh: "+student.getDOB();
-    }
-    public void insert(Student student){
-        studentList.add(student);
-    }
-    public List<Student> getAll(){
-        return studentList;
-    }
-    public Student getById(long id){
-        Student student=studentList.stream().filter(x->x.id==id).toList().get(0);
-        return student;
-    }
-    public void update(long id,Student new_student){
-        Student selected_student= studentList.stream().filter(x->x.id==id).toList().get(0);
-        selected_student.setName(new_student.getName());
-        selected_student.setAge(new_student.getAge());
-        selected_student.setLop(new_student.getLop());
-        selected_student.setDOB(new_student.getDOB());
-    }
-    public void deleteById(long id){
-        studentList.remove(studentList.stream().filter(x->x.id==id).toList().get(0));
-    }
-    public List<Student> getAllByName(String name){
-        return studentList.stream().filter(x->x.name.contains(name)).toList();
-    }
+
 }

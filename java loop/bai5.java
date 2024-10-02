@@ -1,7 +1,10 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class bai5 {
-    public static Student studentService=new Student();
+    public List<Student> studentList=new ArrayList<>();
+    public static StudentService studentService=new StudentService();
     public static final Scanner sc=new Scanner(System.in);
     public static int menu(){
         System.out.println("Chọn hành động:");
@@ -26,7 +29,7 @@ public class bai5 {
         switch(menu()){
             case 1:
                 for (Student student:studentService.getAll()){
-                    System.out.println(student.toString(student));
+                    System.out.println(studentService.toString(student));
                 }
                 break;
             case 2:
@@ -69,7 +72,7 @@ public class bai5 {
                 System.out.println("Nhập tên sinh viên muốn tìm: ");
                 String name1=sc.nextLine();
                 for (Student student1: studentService.getAllByName(name1)){
-                    System.out.println(student1.toString(student1));
+                    System.out.println(studentService.toString(student1));
                 }
                 break;
             case 7:
@@ -79,26 +82,5 @@ public class bai5 {
                 System.out.println("Nhập không hợp lệ");
         }
         }
-
-
-
-
-
-
-
-
-//        for (Student student:studentService.getAll()){
-//            System.out.println(student.toString(student));
-//        }
-//        System.out.println(studentService.getById(1).toString(studentService.getById(1)));
-//        Student new_student=new Student(1,"DƯƠNG","21CN5",21,"21/12/2005");
-//        studentService.update(new_student.getId(),new_student);
-//        for (Student student:studentService.getAll()){
-//            System.out.println(student.toString(student));
-//        }
-//         studentService.deleteById(1);
-//        for (Student student:studentService.getAll()){
-//            System.out.println(student.toString(student));
-//        }
     }
 }
