@@ -19,9 +19,8 @@ public class Test2 {
         if (max < c) {
             max = c;
         }
-
         System.out.println("So lon nhat " + max);
-        if (max == b || max == c || b == c) {
+        if (max == b || max == c) {
             System.out.println("So lon nhat bang nhau");
         }
 
