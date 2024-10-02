@@ -1,7 +1,6 @@
 package Java_loop;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class SinhVien {
@@ -61,7 +60,7 @@ public class SinhVien {
 
     public void listSv(ArrayList<SinhVien> arr){
          for (SinhVien i : arr) {
-                System.out.println(i.getName() + " " + i.getDOB() + " " + i.classRoom + " " + i.getId() + " " + i.getAge());
+                System.out.println(i.toString());
            }
     }
 
@@ -69,19 +68,20 @@ public class SinhVien {
         arr.add(sv);
     }
 
-    public List<SinhVien> findSV(String key, ArrayList<SinhVien> arr) {
+    public void findSV(String key, ArrayList<SinhVien> arr) {
         ArrayList<SinhVien> arr1 = new ArrayList<SinhVien>();
         for (SinhVien i : arr) {
-            if (key.equals(i.name) || key.equals(i.id)) {
+            if (key.equals(i.getName()) || key.equals(i.getId())) {
                 arr1.add(i);
             }
         }
-        return arr1;
+        listSv(arr1);
+
     }
 
     public void deleleSv(String id,ArrayList<SinhVien> arr){
         for (SinhVien i : arr) {
-            if (id.equals(i.id)) {
+            if (id.equals(i.getId())) {
                arr.remove(i);
             }
         }
@@ -89,7 +89,7 @@ public class SinhVien {
 
     public void updateSv(String id,ArrayList<SinhVien> arr) {
         for (SinhVien i : arr) {
-            if (id.equals(i.id)) {
+            if (id.equals(i.getId())) {
                 Scanner sc = new Scanner(System.in);
                 System.out.println("Moi nhap ten sinh vien");
                 String name = sc.nextLine();
