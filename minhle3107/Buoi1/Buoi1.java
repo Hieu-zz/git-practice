@@ -16,7 +16,7 @@ public class Buoi1 {
         System.out.printf("Chiều rộng của hình chữ nhật là: %.3f \n", chieuRong);
 
         // convert double sang int
-        int chuVi = (int) (chieuDai + chieuRong);
+        int chuVi = (int) (chieuDai + chieuRong) * 2;
 
         // convert double sang int
         int dienTich = (int) (chieuDai * chieuRong);
