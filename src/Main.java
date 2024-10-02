@@ -1,3 +1,4 @@
+import javaloop.CheckKey;
 import javaloop.FindMaxNumber;
 import javaloop.MathNumber;
 
@@ -20,7 +21,10 @@ public class Main {
 //        FindMaxNumber findMaxNumber = new FindMaxNumber();
 //        findMaxNumber.findMaxNumber();
 
-        MathNumber mathNumber = new MathNumber();
-        mathNumber.TinhGiaTri();
+//        MathNumber mathNumber = new MathNumber();
+//        mathNumber.TinhGiaTri();
+
+        CheckKey checkKey = new CheckKey();
+        checkKey.findKey();
     }
 }
