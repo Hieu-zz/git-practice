@@ -16,10 +16,8 @@ public class test1 {
         int P = (int)p;
         System.out.println("dien tich hcn sau khi chuyen doi " + S);
         System.out.println("chu vi hcn sau khi chuyen doi " + P);
-
-        System.out.printf("%3f", S);
-        System.out.printf("%.3f",P );
-
+        System.out.format("%.3f", s);
+        System.out.format("%.3f",p );
         //coment fdhgdsugjfkdhj
 
 
