@@ -1,4 +1,5 @@
 import javaloop.FindMaxNumber;
+import javaloop.MathNumber;
 
 import java.util.Scanner;
 
@@ -15,7 +16,11 @@ public class Main {
         System.out.println("Chu vi nguyen la: " + (int) chuVi);
         System.out.println("Dien tich thuc la:  " +  String.format("%.3f", dienTich));
         System.out.println("Chu vi thuc la: " +String.format("%.3f", chuVi)); */
-        FindMaxNumber findMaxNumber = new FindMaxNumber();
-        findMaxNumber.findMaxNumber();
+
+//        FindMaxNumber findMaxNumber = new FindMaxNumber();
+//        findMaxNumber.findMaxNumber();
+
+        MathNumber mathNumber = new MathNumber();
+        mathNumber.TinhGiaTri();
     }
 }
