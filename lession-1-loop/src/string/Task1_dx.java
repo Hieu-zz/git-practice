@@ -1,8 +1,8 @@
-package task1_dx;
+package string;
 
 import java.util.Scanner;
 
-public class Main {
+public class Task1_dx {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("s = ");

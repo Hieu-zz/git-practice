@@ -1,8 +1,8 @@
+package loop;
+
 import java.util.Scanner;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
+public class Task3_pass {
     public static void main(String[] args) {
         char pass = 'z';
         Scanner sc = new Scanner(System.in);
