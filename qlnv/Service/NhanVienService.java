@@ -1,6 +1,6 @@
-package Service;
+package qlnv.Service;
 
-import Model.NhanVien;
+import qlnv.Model.NhanVien;
 
 import java.util.ArrayList;
 import java.util.List;

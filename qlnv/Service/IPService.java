@@ -1,7 +1,6 @@
-package Service;
+package qlnv.Service;
 
-import Model.NhanVien;
-import Model.Phong;
+import qlnv.Model.Phong;
 
 public interface IPService {
     void getAll();

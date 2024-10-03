@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Controller/Controller.iml" filepath="$PROJECT_DIR$/Controller/Controller.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qlnv/Controller/Controller.iml" filepath="$PROJECT_DIR$/qlnv/Controller/Controller.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/java_cy.iml" filepath="$PROJECT_DIR$/.idea/java_cy.iml" />
       <module fileurl="file://$PROJECT_DIR$/qlnv/qlnv.iml" filepath="$PROJECT_DIR$/qlnv/qlnv.iml" />
     </modules>

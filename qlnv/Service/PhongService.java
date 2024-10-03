@@ -1,7 +1,7 @@
-package Service;
+package qlnv.Service;
 
-import Model.NhanVien;
-import Model.Phong;
+import qlnv.Model.NhanVien;
+import qlnv.Model.Phong;
 
 import java.util.ArrayList;
 import java.util.List;
