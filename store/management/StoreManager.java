@@ -5,6 +5,5 @@ public class StoreManager {
         laptop laptop = new laptop("100","aaa", "aaa");
         laptop.Showbattery();
         laptop.see();
-
     }
 }
