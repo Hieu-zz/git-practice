@@ -1,7 +1,7 @@
 package store.devices;
 
 public class Laptop extends Device {
-    final private int battery = 1;
+    final int battery = 1;
 
     public Laptop(String brand, String model) {
         this.brand = brand;
