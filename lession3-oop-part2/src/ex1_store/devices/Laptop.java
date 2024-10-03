@@ -1,4 +1,4 @@
-package store.devices;
+package ex1_store.devices;
 
 public class Laptop extends Device {
     private double battery;
