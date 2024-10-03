@@ -1,14 +1,14 @@
-package qlnv.Model;
+package Model;
 
-public class Employee {
-     private long id;
-     private String name, DOB, phoneNumber, workAs;
-     private int age;
+public class NhanVien {
+    long id;
+    String name, DOB, phoneNumber, workAs;
+    int age;
 
-    public Employee() {
+    public NhanVien() {
     }
 
-    public Employee(long id, String name, String DOB, String phoneNumber, String workAs, int age) {
+    public NhanVien(long id, String name, String DOB, String phoneNumber, String workAs, int age) {
         this.id = id;
         this.name = name;
         this.DOB = DOB;
@@ -21,7 +21,7 @@ public class Employee {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(double randomDouble) {
         this.id = id;
     }
 
@@ -61,13 +61,9 @@ public class Employee {
         return age;
     }
 
-    public void setAge(int age) {
-        this.age = age;
-    }
-
     @Override
     public String toString() {
-        return "Employee{" +
+        return "NhanVien{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", DOB='" + DOB + '\'' +
@@ -76,4 +72,10 @@ public class Employee {
                 ", age=" + age +
                 '}';
     }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+
 }

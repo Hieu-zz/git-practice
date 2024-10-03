@@ -1,4 +1,4 @@
-package qlnv.Model;
+package Model;
 
 public class Phong {
     String name;

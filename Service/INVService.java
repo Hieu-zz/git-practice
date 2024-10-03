@@ -1,6 +1,6 @@
-package qlnv.Service;
+package Service;
 
-import qlnv.Model.NhanVien;
+import Model.NhanVien;
 
 public interface INVService {
     void getAll();
