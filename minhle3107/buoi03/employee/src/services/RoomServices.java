@@ -1,5 +1,6 @@
 package services;
 
+import exceptions.InvalidIdException;
 import models.Employee;
 import models.Room;
 import services.interfaces.IRoomServices;
@@ -17,8 +18,15 @@ public class RoomServices implements IRoomServices {
     }
 
     @Override
-    public void create(Room room) {
-        listRoom.add(room);
+    public void create(Room room) throws InvalidIdException {
+        Room check = getById(room.getId());
+
+        if (check != null) {
+            throw new InvalidIdException("Id " + room.getId() + " đã tồn tại");
+        } else {
+            listRoom.add(room);
+            System.out.println("Successfully created new employee");
+        }
 
     }
 

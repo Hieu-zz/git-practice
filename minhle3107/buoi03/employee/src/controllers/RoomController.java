@@ -1,5 +1,6 @@
 package controllers;
 
+import exceptions.InvalidIdException;
 import models.Employee;
 import models.Room;
 import services.EmployeeServices;
@@ -28,7 +29,7 @@ public class RoomController {
         return roomServices.getAllRoom();
     }
 
-    public void create(Room room) {
+    public void create(Room room) throws InvalidIdException {
         roomServices.create(room);
 
     }

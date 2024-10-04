@@ -1,5 +1,6 @@
 package services.interfaces;
 
+import exceptions.InvalidIdException;
 import models.Employee;
 import models.Room;
 import services.EmployeeServices;
@@ -17,7 +18,7 @@ public interface IRoomServices {
 
     List<Employee> employeeDoesNotHaveARoomYet(EmployeeServices employeeServices);
 
-    void create(Room room);
+    void create(Room room)  throws InvalidIdException;
 
     void update(long id, Room room);
 

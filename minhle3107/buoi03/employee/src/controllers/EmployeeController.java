@@ -1,5 +1,6 @@
 package controllers;
 
+import exceptions.InvalidIdException;
 import models.Employee;
 import services.EmployeeServices;
 
@@ -20,7 +21,7 @@ public class EmployeeController {
         return employeeServices.getAllEmployee();
     }
 
-    public void create(Employee employee) {
+    public void create(Employee employee) throws InvalidIdException {
         employeeServices.create(employee);
     }
 

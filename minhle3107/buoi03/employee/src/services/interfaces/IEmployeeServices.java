@@ -1,5 +1,6 @@
 package services.interfaces;
 
+import exceptions.InvalidIdException;
 import models.Employee;
 
 import java.util.List;
@@ -9,7 +10,7 @@ public interface IEmployeeServices {
 
     List<Employee> getAllEmployee();
 
-    void create(Employee employee);
+    void create(Employee employee) throws InvalidIdException;
 
     void update(long id, Employee employee);
 

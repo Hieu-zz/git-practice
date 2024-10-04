@@ -1,5 +1,6 @@
 package services;
 
+import exceptions.InvalidIdException;
 import models.Employee;
 import services.interfaces.IEmployeeServices;
 
@@ -24,9 +25,17 @@ public class EmployeeServices implements IEmployeeServices {
     }
 
     @Override
-    public void create(Employee employee) {
-        listEmployee.add(employee);
-        System.out.println("Successfully created new employee");
+    public void create(Employee employee) throws InvalidIdException {
+        Employee check = getById(employee.getId());
+
+        if (check != null) {
+            throw new InvalidIdException("Id " + employee.getId() + " đã tồn tại");
+        } else {
+            listEmployee.add(employee);
+            System.out.println("Successfully created new employee");
+        }
+
+
     }
 
     @Override

@@ -1,5 +1,6 @@
 import controllers.EmployeeController;
 import controllers.RoomController;
+import exceptions.InvalidIdException;
 import models.Employee;
 import models.Room;
 import services.EmployeeServices;
@@ -40,7 +41,6 @@ public class Main {
             switch (choose) {
                 case 1:
                     createdEmployee(employeeController);
-
                     break;
                 case 2:
                     getAllEmployee(employeeController);
@@ -100,18 +100,20 @@ public class Main {
     }
 
     public static void createdEmployee(EmployeeController employeeController) {
-        Scanner sc = new Scanner(System.in);
-        Employee employee = new Employee();
-        System.out.print("Id: ");
-        employee.setId(sc.nextLong());
+        try {
+            Scanner sc = new Scanner(System.in);
+            Employee employee = new Employee();
+            System.out.print("Id: ");
+            employee.setId(sc.nextLong());
 
-        inputEmployee(sc, employee);
+            inputEmployee(sc, employee);
 
-        if (employeeController.getById(employee.getId()) != null) {
-            System.out.println("Id already exists");
-        } else {
             employeeController.create(employee);
+        } catch (InvalidIdException e) {
+            System.out.println(e.getMessage());
         }
+
+
     }
 
     private static void inputEmployee(Scanner sc, Employee employee) {
@@ -154,24 +156,26 @@ public class Main {
 
 
     public static void createdRoom(RoomController roomController) {
-        Scanner sc = new Scanner(System.in);
-        Room room = new Room();
 
-        System.out.print("Id: ");
-        room.setId(sc.nextLong());
+        try {
 
-        System.out.print("Name: ");
-        room.setName(sc.next());
+            Scanner sc = new Scanner(System.in);
+            Room room = new Room();
 
-        System.out.print("Floor: ");
-        room.setFloor(sc.nextInt());
+            System.out.print("Id: ");
+            room.setId(sc.nextLong());
 
-        room.setEmployee(null);
+            System.out.print("Name: ");
+            room.setName(sc.next());
 
-        if (roomController.getById(room.getId()) != null) {
-            System.out.println("Id already exists");
-        } else {
+            System.out.print("Floor: ");
+            room.setFloor(sc.nextInt());
+
+            room.setEmployee(null);
+
             roomController.create(room);
+        } catch (InvalidIdException e) {
+            System.out.println(e.getMessage());
         }
     }
 
