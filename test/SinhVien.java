@@ -1,3 +1,4 @@
+package test;
 public class SinhVien {
     private int id;
     private String hoTen;

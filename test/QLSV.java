@@ -1,3 +1,4 @@
+package test;
 public static void main(String[] args) {
     ArrayList<SinhVien> sinhViens = new ArrayList<>();
     try (Scanner input = new Scanner(System.in)) {

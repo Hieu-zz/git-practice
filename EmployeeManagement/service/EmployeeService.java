@@ -2,6 +2,7 @@ package EmployeeManagement.service;
 
 import java.util.*;
 
+import EmployeeManagement.defined_exceptions.IdException;
 import EmployeeManagement.model.Employee;
 
 public class EmployeeService {
@@ -54,8 +55,16 @@ public class EmployeeService {
         return false;
     }
 
+    void duplicatedId(long id) throws IdException {
+        for (Employee employee : employees) {
+            if (employee.getId() == id) {
+                throw new IdException(id);
+            }
+        }
+    }
+
     public void addEmployee() {
-        int id;
+        long id;
         Scanner input = new Scanner(System.in);
         System.out.print("Enter employee ID: ");
         do {
@@ -65,6 +74,11 @@ public class EmployeeService {
                 System.out.print("This ID is existing\nTry another ID: ");
             }
         } while (isDuplicated(id));
+        // try {
+        // duplicatedId(id);
+        // } catch (IdException e) {
+        // e.printMessage();
+        // }
         System.out.print("Enter name: ");
         String name = input.nextLine();
         System.out.print("Enter age: ");
