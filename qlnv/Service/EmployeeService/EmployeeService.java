@@ -1,5 +1,6 @@
 package qlnv.Service.EmployeeService;
 
+import qlnv.Controller.checkIdException;
 import qlnv.Model.Employee;
 import qlnv.Service.DepartmentService.DepartmentService;
 
@@ -34,9 +35,14 @@ public class EmployeeService implements IEmployeeService{
     }
 
     @Override
-    public void add() {
+    public void add(){
         System.out.println("Moi nhap id nhan vien");
         long id = sc.nextLong();
+        try {
+            checkid(id);
+        }catch (Exception e){
+            System.out.println("Id: " + id +"nguoi dung da ton tai");
+        }
         System.out.println("Moi nhap ten nhan vien");
         String name= sc.next();
         System.out.println("Moi nhap ngay sinh");
@@ -87,4 +93,11 @@ public class EmployeeService implements IEmployeeService{
         return employees;
     }
 
+    void checkid(long id) throws checkIdException{
+        for (Employee employee: employees){
+            if (employee.getId() == id){
+                throw new checkIdException(id);
+            }
+        }
+    }
 }

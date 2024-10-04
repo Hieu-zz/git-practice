@@ -1,11 +1,10 @@
 package qlnv.Controller;
-import qlnv.Service.DepartmentService.DepartmentService;
 import qlnv.Service.EmployeeService.EmployeeService;
-
+import qlnv.Service.DepartmentService.DepartmentService;
 import java.util.Scanner;
 
 public class main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws checkIdException {
         Scanner sc = new Scanner(System.in);
         EmployeeService employeeService = new EmployeeService();
         DepartmentService departmentService = new DepartmentService();
