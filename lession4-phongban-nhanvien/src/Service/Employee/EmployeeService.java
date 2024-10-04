@@ -74,6 +74,16 @@ public class EmployeeService implements EmployeeInterface{
     }
 
     @Override
+    public int findByName( String name) {
+        for (int i = 0; i < Employee.getLength(); i++) {
+            if(employees[i].getName().equalsIgnoreCase(name)){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    @Override
     public void add( Object object) {
         if(Employee.getLength() == 999)
             System.out.println("Không thể thêm nhân viên");

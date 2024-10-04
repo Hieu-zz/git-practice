@@ -2,20 +2,24 @@ package test;
 
 import Model.Department;
 
+import java.io.IOException;
 import java.util.StringTokenizer;
 
 public class Main {
-    public static void main(String[] args) {
-        int cnt = 0;
-        StringTokenizer token = new StringTokenizer(";*!str", ";*!");
-        System.out.println(token);
 
-        // In ra từng phần tử
-        while (token.hasMoreTokens()) {
-            token.nextToken();
-            System.out.println(cnt);
-            cnt++;
+    static void display() throws IOException{
+//        throw new ArithmeticException();
+    }
+
+    public static void main(String[] args)  {
+        try {
+            throw new Error();
+//            System.out.println(1/0);
+        }catch (ArithmeticException  e){
+            System.out.println(",");
+        }finally {
+            System.out.println("123");
         }
-        System.out.println(cnt);
+        System.out.println("d");
     }
 }

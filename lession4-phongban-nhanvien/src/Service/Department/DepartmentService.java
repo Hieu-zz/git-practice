@@ -1,8 +1,10 @@
 package Service.Department;
 
+import Exception_Test.NameException;
 import Model.Department;
 import Model.Employee;
 import Service.Employee.EmployeeService;
+import Exception_Test.IdException;
 
 import java.util.Scanner;
 import java.util.StringTokenizer;
@@ -55,13 +57,33 @@ public class DepartmentService implements DepartmentInterface{
         return -1;
     }
 
+    @Override
+    public int findByName( String name) {
+        for (int i = 0; i < Department.getLength(); i++) {
+            if(this.departments[i].getName().equalsIgnoreCase(name)){
+                return i;
+            }
+        }
+        return -1;
+    }
+
     //-------------------Thêm 1
 
     @Override
-    public void add(Object object) {
+    public void add(Object object) throws IdException, NameException {
         if(Department.getLength() == 999)
             System.out.println("Không thể thêm phòng ban");
         else{
+            if(object instanceof Department) {
+                int posId = findById( ((Department) object).getId() );
+                if(posId != -1)
+                    throw new IdException("Id trùng");
+
+                int posName = findByName( ((Department) object).getName() );
+                if(posName != -1)
+                    throw new NameException("Name trùng");
+            }
+
             this.departments[Department.getLength()] = (Department) object;
             Department.setLength(Department.getLength()+1);
         }

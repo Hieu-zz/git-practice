@@ -1,0 +1,5 @@
+1         ; Beef Wellington          ; Beef, Puff Pastry, Mushrooms                 ; Main Course              ; 30   
+2         ; Spaghetti Carbonara      ; Spaghetti, Eggs, Parmesan Cheese             ; Main Course              ; 20   
+3         ; Chicken Tikka Masala     ; Chicken, Curry Sauce, Rice                   ; Main Course              ; 15   
+4         ; Pancakes                 ; Flour, Eggs, Milk                            ; Dessert                  ; 25   
+5         ; Caesar Salad             ; Lettuce, Croutons, Caesar Dressing           ; Appetizer                ; 30   

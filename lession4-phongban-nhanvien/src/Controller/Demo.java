@@ -1,5 +1,7 @@
 package Controller;
 
+import Exception_Test.IdException;
+import Exception_Test.NameException;
 import Model.Department;
 import Model.Employee;
 import Service.Department.DepartmentService;
@@ -14,7 +16,7 @@ public class Demo {
     private static EmployeeService employeeService = new EmployeeService();
 
     //---------------------------main------------------
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IdException, NameException {
         int checkDepart = 0, checkEm = 0;
         //-------------------------------------------------
         while (true){
@@ -42,7 +44,13 @@ public class Demo {
                         case 3:
                             System.out.println("Nhập thông tin phòng ban muốn nhập");
                             Department department = (Department) departmentService.inputOne();
-                            departmentService.add( department);
+                            try {
+                                departmentService.add( department);
+                            }catch (NameException f){
+                                System.out.println(f);
+                            }catch (IdException e){
+                                System.out.println(e);
+                            }
                             break;
                         case 4:
                             System.out.print("Nhập id muốn sửa: ");
