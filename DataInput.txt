@@ -1,0 +1,5 @@
+80,Bread 2,Rice,Chua,0
+100,Noodle 2,Egg,Man,0
+99,Cake 2,Beef,Chua,0
+89,Candy 2,Rice,Cay,0
+23,Sandwich 2,Egg,Man,0

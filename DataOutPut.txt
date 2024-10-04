@@ -1,0 +1,7 @@
+1,Bread,Rice,Ngot,99
+2,Noodle,Egg,Man,1000
+3,Cake,Beef,Chua,0
+4,Candy,Rice,Ngot,0
+5,Sandwich,Egg,Man,0
+6,Bread 2,rice,com,0
+7,nem chua,thit,thit,1000
