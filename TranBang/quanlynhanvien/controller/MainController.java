@@ -4,12 +4,13 @@ import org.example.StudentManager;
 import org.example.quanlynhanvien.models.Room;
 import org.example.quanlynhanvien.services.IEmployeeService;
 import org.example.quanlynhanvien.services.impl.EmployeeService;
+import org.example.quanlynhanvien.services.impl.InvalidIdException;
 import org.example.quanlynhanvien.services.impl.RoomService;
 
 import java.util.Scanner;
 
 public class MainController {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InvalidIdException {
         EmployeeService e = new EmployeeService();
         RoomService r = new RoomService(e);
         Scanner sc = new Scanner(System.in);
@@ -36,7 +37,12 @@ public class MainController {
                     e.getAllEmployee();
                     break;
                 case 2:
-                    e.addEmployee();
+                    try {
+                        e.addEmployee();
+                    }catch (InvalidIdException ie){
+                        System.out.println(ie);
+                    }
+
                     break;
                 case 3:
                     e.updateEmployee();

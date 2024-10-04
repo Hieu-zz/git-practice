@@ -30,26 +30,43 @@ public class EmployeeService implements IEmployeeService {
     }
 
     @Override
-    public void addEmployee() {
+    public Employee getId(long id) {
+        for (Employee employee : employees) {
+            if(employee.geteId()==id){
+                return employee;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public void addEmployee() throws InvalidIdException {
         System.out.println("Nhap id nhan vien:");
         long id = sc.nextLong();
-        sc.nextLine();
-        System.out.println("Nhap ten nhan vien");
-        String name = sc.nextLine();
-        System.out.println("Ngay sinh nhan vien");
-        String dob = sc.nextLine();
-        System.out.println("Tuoi cua nhan vien");
-        int age = sc.nextInt();
-        sc.nextLine();
-        System.out.println("so dien thoai cua nhan vien");
-        String phone = sc.nextLine();
-        System.out.println("workAs cua nhan vien");
-        String workAs = sc.nextLine();
+        Employee e1 =getId(id);
+        if(e1!=null) {
+            throw new InvalidIdException("id " + id+ " da ton tai");
+        }else{
+            sc.nextLine();
+            System.out.println("Nhap ten nhan vien");
+            String name = sc.nextLine();
+            System.out.println("Ngay sinh nhan vien");
+            String dob = sc.nextLine();
+            System.out.println("Tuoi cua nhan vien");
+            int age = sc.nextInt();
+            sc.nextLine();
+            System.out.println("so dien thoai cua nhan vien");
+            String phone = sc.nextLine();
+            System.out.println("workAs cua nhan vien");
+            String workAs = sc.nextLine();
+
+            Employee e = new Employee(id,name,dob,age,phone,workAs);
+            employees.add(e);
+            System.out.println("them nhan vien thanh cong");
+        }
 
 
-        Employee e = new Employee(id,name,dob,age,phone,workAs);
-        employees.add(e);
-        System.out.println("them nhan vien thanh cong");
+
     }
 
     @Override
