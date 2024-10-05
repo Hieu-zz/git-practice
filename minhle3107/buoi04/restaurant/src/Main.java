@@ -117,6 +117,7 @@ public class Main {
                     bookTable(tableController, chefController);
                     break;
                 case 19:
+                    order(dishController);
                     break;
                 case 20:
                     break;
@@ -188,7 +189,7 @@ public class Main {
         if (chefController.getAllByStatus(status).isEmpty()) {
             System.out.println("Empty chef list");
         } else {
-            chefController.getAll().forEach(System.out::println);
+            chefController.getAllByStatus(status).forEach(System.out::println);
         }
 
 
@@ -254,7 +255,7 @@ public class Main {
         if (dishController.getAllByCategory(cateSearch).isEmpty()) {
             System.out.println("Empty dish list");
         } else {
-            dishController.getAll().forEach(System.out::println);
+            dishController.getAllByCategory(cateSearch).forEach(System.out::println);
         }
     }
 
@@ -321,7 +322,7 @@ public class Main {
         if (tableController.getAllWithChef().isEmpty()) {
             System.out.println("Empty table list");
         } else {
-            tableController.getAll().forEach(System.out::println);
+            tableController.getAllWithChef().forEach(System.out::println);
         }
     }
 
@@ -329,7 +330,7 @@ public class Main {
         if (tableController.getAllWithOutChef().isEmpty()) {
             System.out.println("Empty table list");
         } else {
-            tableController.getAll().forEach(System.out::println);
+            tableController.getAllWithOutChef().forEach(System.out::println);
         }
     }
 
@@ -342,7 +343,7 @@ public class Main {
         if (tableController.getAllWithOutChef().isEmpty()) {
             System.out.println("Empty table list");
         } else {
-            tableController.getAll().forEach(System.out::println);
+            tableController.getAllWithOutChef().forEach(System.out::println);
         }
 
         System.out.print("Select table id: ");
@@ -352,15 +353,33 @@ public class Main {
         if (chefController.getAllByStatus(true).isEmpty()) {
             System.out.println("Empty chef list");
         } else {
-            chefController.getAll().forEach(System.out::println);
+            chefController.getAllByStatus(true).forEach(System.out::println);
         }
 
+        System.out.print("Enter id chef: ");
         Chef chef = chefController.getById(sc.nextInt());
 
         table.setChef(chef);
 
         tableController.bookTable(idTable, table);
 
+    }
 
+    public static void order(DishController dishController) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Danh sách món ăn: ");
+        if (dishController.getAll().isEmpty()) {
+            System.out.println("Empty dish list");
+        } else {
+            dishController.getAll().forEach(System.out::println);
+        }
+
+        System.out.print("Chọn id món ăn cần order: ");
+        int idDish = sc.nextInt();
+
+        System.out.println("Nhập số lượng: ");
+        int quantityDish = sc.nextInt();
+
+        dishController.order(idDish, quantityDish);
     }
 }

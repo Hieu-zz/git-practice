@@ -11,6 +11,9 @@ public class DishServices implements IDishServices {
     List<Dish> dishList = new ArrayList<>();
 
     public DishServices() {
+        dishList.add(new Dish(1, "Bún đậu", "Bún", "Bún", 0));
+        dishList.add(new Dish(2, "Phở bò", "Thịt bò", "Phở", 0));
+        dishList.add(new Dish(3, "Bánh mỳ", "Bột mỳ", "Đồ ăn nhanh", 0));
     }
 
     public DishServices(List<Dish> dishList) {
@@ -80,7 +83,7 @@ public class DishServices implements IDishServices {
 
     @Override
     public Dish getBestSeller() {
-        Dish dishBestSeller = new Dish();
+        Dish dishBestSeller = dishList.getFirst();
 
         for (Dish dish : dishList) {
             if (dish.getCount() > dishBestSeller.getCount()) {
@@ -90,4 +93,18 @@ public class DishServices implements IDishServices {
 
         return dishBestSeller;
     }
+
+    @Override
+    public void order(int id, int quantity) {
+        Dish dishOrder = getById(id);
+
+        if (dishOrder == null) {
+            System.out.println("Dish not found");
+            return;
+        }
+
+        dishOrder.order(quantity);
+        System.out.println("Order successfully");
+    }
+
 }

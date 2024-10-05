@@ -39,4 +39,8 @@ public class DishController {
         return dishServices.getBestSeller();
     }
 
+    public void order(int id, int quantity) {
+        dishServices.order(id, quantity);
+    }
+
 }

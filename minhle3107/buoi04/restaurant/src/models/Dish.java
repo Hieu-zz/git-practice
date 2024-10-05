@@ -58,6 +58,11 @@ public class Dish {
         this.count = count;
     }
 
+
+    public void order(int quantity) {
+        count += quantity;
+    }
+
     @Override
     public String toString() {
         return "Dish{" +

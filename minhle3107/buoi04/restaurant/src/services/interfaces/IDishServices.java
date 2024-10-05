@@ -18,4 +18,6 @@ public interface IDishServices {
     List<Dish> getAllByCategory(String cate);
 
     Dish getBestSeller();
+
+    void order(int id, int quantity);
 }

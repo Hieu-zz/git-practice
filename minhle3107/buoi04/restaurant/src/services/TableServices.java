@@ -11,6 +11,9 @@ public class TableServices implements ITableServices {
     List<Table> tableList = new ArrayList<>();
 
     public TableServices() {
+        tableList.add(new Table(1, "Table 1", "Guest 1", null));
+        tableList.add(new Table(2, "Table 2", "Guest 2", null));
+        tableList.add(new Table(3, "Table 3", "Guest 3", null));
     }
 
     public TableServices(List<Table> tableList) {
@@ -83,7 +86,7 @@ public class TableServices implements ITableServices {
         List<Table> getAllWithOutChef = new ArrayList<>();
 
         for (Table table : tableList) {
-            if (table.getChef() != null) {
+            if (table.getChef() == null) {
                 getAllWithOutChef.add(table);
             }
         }

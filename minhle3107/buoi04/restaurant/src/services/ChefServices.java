@@ -10,6 +10,9 @@ public class ChefServices implements IChefServices {
     List<Chef> chefList = new ArrayList<>();
 
     public ChefServices() {
+        chefList.add(new Chef(1, "Minh", "0987654321", true));
+        chefList.add(new Chef(2, "Chang", "0987654322", false));
+        chefList.add(new Chef(3, "Nhi", "0987654323", true));
     }
 
     public ChefServices(List<Chef> chefList) {
