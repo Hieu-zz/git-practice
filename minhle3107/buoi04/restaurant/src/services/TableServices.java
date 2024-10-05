@@ -107,6 +107,6 @@ public class TableServices implements ITableServices {
             throw new InvalidIdException("Id table does not exist");
         }
         tableBook.setChef(table.getChef());
-        System.out.println("Book room success");
+        System.out.println("Book table success");
     }
 }
