@@ -16,10 +16,27 @@ public class EmployeeManagement {
     }
 
     Scanner sc = new Scanner(System.in);
-    public void them(){
+
+    void checkId(long id) throws check{
+        for (Employee e : listEm){
+            if(e.getId() == id){
+                throw new check(id);
+            }
+        }
+    }
+
+    public void them() throws check{
         System.out.println("Thêm thông tin nhân viên: ");
         System.out.println("ID: ");
         long id = sc.nextLong();
+        if(timEmId(id) != null){
+            throw new check(id);
+        }
+//        try {
+//            checkId(id);
+//        }catch (Exception e){
+//            System.out.println("Đã tồn tại Id");
+//        }
         System.out.println("Name: ");
         String name = sc.next();
         System.out.println("Age: ");

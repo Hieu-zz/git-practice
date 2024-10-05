@@ -18,9 +18,21 @@ public class PhongManagement {
         listPhong = new ArrayList<>();
     }
 
+    void checkName(String name) throws check{
+        for (Phong p : listPhong){
+            if(p.getName().equals(name)){
+                throw new check(name);
+            }
+        }
+    }
     public void them(EmployeeManagement e) {
         System.out.println("Nhập tên phòng: ");
         String name = sc.next();
+        try {
+            checkName(name);
+        }catch (Exception m){
+            System.out.println("Đã tồn tại tên phòng");
+        }
         System.out.println("Nhập tầng: ");
         int floor = sc.nextInt();
         Phong p = new Phong(name, floor);

@@ -30,7 +30,11 @@ public class Main {
 
             switch (n){
                 case 1:
-                    e.them();
+                    try {
+                        e.them();
+                    }catch (Exception m){
+                        System.out.println("Đã tồn tại ID");
+                    }
                     break;
                 case 2:
                     long id1 = s.nextLong();
