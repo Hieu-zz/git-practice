@@ -112,15 +112,23 @@ public class DishServices implements IDishServices {
     }
 
     @Override
-    public void importDishes(String filePath) {
-
+    public void importDishes(String filePath) throws InvalidIdException {
         List<Dish> dishImport = utils.DishLoader.loadDishesFromFile(filePath);
+        List<Integer> listOfIdsAlreadyExists = new ArrayList<>();
 
-        dishList.addAll(dishImport);
+        for (Dish dish : dishImport) {
+            if (getById(dish.getId()) != null) {
+                listOfIdsAlreadyExists.add(dish.getId());
+            } else {
+                dishList.add(dish);
+            }
+        }
+
+        for (Integer idExists : listOfIdsAlreadyExists) {
+            System.out.println("Id " + idExists + " already exists");
+        }
 
         System.out.println("Data imported successfully.");
-
-
     }
 
     @Override

@@ -44,7 +44,7 @@ public class DishController {
         dishServices.order(id, quantity);
     }
 
-    public void importDishes(String filePath) {
+    public void importDishes(String filePath) throws InvalidIdException {
         dishServices.importDishes(filePath);
     }
 

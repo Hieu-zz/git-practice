@@ -43,7 +43,7 @@ public class TableController {
         return tableServices.getAllWithOutChef();
     }
 
-    public void bookTable(int id, Table table) {
+    public void bookTable(int id, Table table) throws InvalidIdException {
         tableServices.bookTable(id, table);
     }
 

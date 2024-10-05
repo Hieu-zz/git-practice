@@ -22,7 +22,7 @@ public interface IDishServices {
 
     void order(int id, int quantity) throws InvalidIdException;
 
-    void importDishes(String filePath);
+    void importDishes(String filePath) throws InvalidIdException;
 
     void exportDishes(String filePath);
 }

@@ -387,33 +387,39 @@ public class Main {
     }
 
     public static void bookTable(TableController tableController, ChefController chefController) {
-        Scanner sc = new Scanner(System.in);
 
-        Table table = new Table();
+        try {
 
-        System.out.println("Danh sách bàn ăn chưa có bếp trưởng phục vụ: ");
-        if (tableController.getAllWithOutChef().isEmpty()) {
-            System.out.println("Empty table list");
-        } else {
-            tableController.getAllWithOutChef().forEach(System.out::println);
+            Scanner sc = new Scanner(System.in);
+
+            Table table = new Table();
+
+            System.out.println("Danh sách bàn ăn chưa có bếp trưởng phục vụ: ");
+            if (tableController.getAllWithOutChef().isEmpty()) {
+                System.out.println("Empty table list");
+            } else {
+                tableController.getAllWithOutChef().forEach(System.out::println);
+            }
+
+            System.out.print("Select table id: ");
+            int idTable = sc.nextInt();
+
+            System.out.println("Danh sách bếp trưởng đi làm: ");
+            if (chefController.getAllByStatus(true).isEmpty()) {
+                System.out.println("Empty chef list");
+            } else {
+                chefController.getAllByStatus(true).forEach(System.out::println);
+            }
+
+            System.out.print("Enter id chef: ");
+            Chef chef = chefController.getById(sc.nextInt());
+
+            table.setChef(chef);
+
+            tableController.bookTable(idTable, table);
+        } catch (InvalidIdException e) {
+            System.out.println(e.getMessage());
         }
-
-        System.out.print("Select table id: ");
-        int idTable = sc.nextInt();
-
-        System.out.println("Danh sách bếp trưởng đi làm: ");
-        if (chefController.getAllByStatus(true).isEmpty()) {
-            System.out.println("Empty chef list");
-        } else {
-            chefController.getAllByStatus(true).forEach(System.out::println);
-        }
-
-        System.out.print("Enter id chef: ");
-        Chef chef = chefController.getById(sc.nextInt());
-
-        table.setChef(chef);
-
-        tableController.bookTable(idTable, table);
 
     }
 
@@ -443,7 +449,13 @@ public class Main {
     public static void importDishes(DishController dishController) {
         String filePathToImport = System.getProperty("user.dir") + "/data/input/mon-an.txt";
 
-        dishController.importDishes(filePathToImport);
+        try {
+
+            dishController.importDishes(filePathToImport);
+        } catch (InvalidIdException e) {
+            System.out.println(e.getMessage());
+        }
+
 
     }
 
