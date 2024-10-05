@@ -1,16 +1,17 @@
 package RestaurantManagement.services;
 
+import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import EmployeeManagement.controller.main;
 import RestaurantManagement.models.Dish;
-import RestaurantManagement.utils.ReadFromFile;
-import RestaurantManagement.utils.WriteToFile;
+import RestaurantManagement.utils.FileUtils;
 
 public class DishService {
     List<Dish> dishes = new ArrayList<>();
@@ -30,38 +31,37 @@ public class DishService {
     }
 
     public void getDishesFromFile() {
-        try (FileInputStream fis = new FileInputStream("RestaurantManagement/utils/dishes.txt")) {
-            String fileContent = ReadFromFile.ReadFile(fis);
-            String[] lines = fileContent.split("\\r?\\n");
-
-            for (String line : lines) {
-                if (!line.trim().isEmpty()) {
-                    String[] parts = line.split(";");
-                    if (parts.length == 5) {
-                        int id = Integer.parseInt(parts[0].trim());
-                        String name = parts[1].trim();
-                        String ingredients = parts[2].trim();
-                        String category = parts[3].trim();
-                        int count = Integer.parseInt(parts[4].trim());
-
-                        dishes.add(new Dish(id, name, ingredients, category, count));
-                    }
+        String path = "RestaurantManagement\\utils\\dishes.txt";
+        try (FileInputStream fileIn = new FileInputStream(path);
+                ObjectInputStream objIn = new ObjectInputStream(fileIn)) {
+            while (true) {
+                try {
+                    Dish dish = FileUtils.readObjectFromFile(objIn, Dish.class);
+                    dishes.add(dish);
+                } catch (EOFException e) {
+                    break;
+                } catch (ClassCastException e) {
+                    System.out.println(e.getMessage());
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
+        } catch (ClassNotFoundException e) {
+            System.out.println(e.getMessage());
         }
     }
 
     public void saveDishToFile() {
-        try (FileOutputStream fos = new FileOutputStream("RestaurantManagement\\utils\\dishes.txt")) {
+        String path = "RestaurantManagement\\utils\\dishes.txt";
+        try (FileOutputStream fileOut = new FileOutputStream(path);
+                ObjectOutputStream objOut = new ObjectOutputStream(fileOut)) {
             for (Dish dish : dishes) {
-                String data = dish.toCSV() + "\n";
-                WriteToFile.WriteToFileUsingOutputStream(fos, data);
+                FileUtils.writeObjectToFile(objOut, dish);
             }
-            System.out.println("Dish information written to file successfully.");
-        } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Đã ghi danh sách Person vào file.");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.getCause();
         }
     }
 

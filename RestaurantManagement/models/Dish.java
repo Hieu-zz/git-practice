@@ -1,6 +1,8 @@
 package RestaurantManagement.models;
 
-public class Dish {
+import java.io.Serializable;
+
+public class Dish implements Serializable {
     int id;
     String name;
     String ingredients;

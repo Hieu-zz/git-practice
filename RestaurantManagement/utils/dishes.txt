@@ -1,6 +1,1 @@
-1;Spaghetti;Pasta, Tomato Sauce, Meatballs;Main Course;130
-2;Caesar Salad;Lettuce, Croutons, Caesar Dressing;Salad;0
-3;Chicken Curry;Chicken, Curry Sauce, Rice;Main Course;0
-4;Miso Soup;Miso Paste, Tofu, Seaweed;Soup;0
-5;Pancakes;Flour, Eggs, Milk, Syrup;Dessert;0
-6;Chocolate Cake;Flour, Eggs, Milk, Chocolate chips;Dessert;300
+
