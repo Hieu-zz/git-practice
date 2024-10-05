@@ -1,5 +1,6 @@
 package services;
 
+import exceptions.InvalidIdException;
 import models.Dish;
 import services.interfaces.IDishServices;
 
@@ -21,17 +22,22 @@ public class DishServices implements IDishServices {
     }
 
     @Override
-    public void create(Dish dish) {
+    public void create(Dish dish) throws InvalidIdException {
+        Dish dickCheck = getById(dish.getId());
+
+        if (dickCheck != null) {
+            throw new InvalidIdException("Id already exists");
+
+        }
         dishList.add(dish);
     }
 
     @Override
-    public void update(int id, Dish dish) {
+    public void update(int id, Dish dish) throws InvalidIdException {
         Dish dishUpdate = getById(id);
 
         if (dishUpdate == null) {
-            System.out.println("Dish not found");
-            return;
+            throw new InvalidIdException("Id does not exist");
         }
         dishUpdate.setName(dish.getName());
         dishUpdate.setIngredient(dish.getIngredient());
@@ -42,12 +48,11 @@ public class DishServices implements IDishServices {
     }
 
     @Override
-    public void remove(int id) {
+    public void remove(int id) throws InvalidIdException {
         Dish dishRemove = getById(id);
 
         if (dishRemove == null) {
-            System.out.println("Dish not found");
-            return;
+            throw new InvalidIdException("Id does not exist");
         }
 
         dishList.remove(dishRemove);
@@ -95,12 +100,11 @@ public class DishServices implements IDishServices {
     }
 
     @Override
-    public void order(int id, int quantity) {
+    public void order(int id, int quantity) throws InvalidIdException {
         Dish dishOrder = getById(id);
 
         if (dishOrder == null) {
-            System.out.println("Dish not found");
-            return;
+            throw new InvalidIdException("Id dish does not exist");
         }
 
         dishOrder.order(quantity);

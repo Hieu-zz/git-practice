@@ -1,16 +1,17 @@
 package services.interfaces;
 
 
+import exceptions.InvalidIdException;
 import models.Table;
 
 import java.util.List;
 
 public interface ITableServices {
-    void create(Table table);
+    void create(Table table) throws InvalidIdException;
 
-    void update(int id, Table table);
+    void update(int id, Table table) throws InvalidIdException;
 
-    void remove(int id);
+    void remove(int id) throws InvalidIdException;
 
     Table getById(int id);
 

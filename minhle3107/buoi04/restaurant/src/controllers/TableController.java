@@ -1,5 +1,6 @@
 package controllers;
 
+import exceptions.InvalidIdException;
 import models.Chef;
 import models.Table;
 import services.ChefServices;
@@ -22,15 +23,15 @@ public class TableController {
         return tableServices.getAll();
     }
 
-    public void create(Table table) {
+    public void create(Table table) throws InvalidIdException {
         tableServices.create(table);
     }
 
-    public void update(int id, Table table) {
+    public void update(int id, Table table) throws InvalidIdException {
         tableServices.update(id, table);
     }
 
-    public void remove(int id) {
+    public void remove(int id) throws InvalidIdException {
         tableServices.remove(id);
     }
 

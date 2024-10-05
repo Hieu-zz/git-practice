@@ -1,5 +1,6 @@
 package controllers;
 
+import exceptions.InvalidIdException;
 import models.Dish;
 import services.DishServices;
 
@@ -19,19 +20,19 @@ public class DishController {
         return dishServices.getAll();
     }
 
-    public void create(Dish di) {
+    public void create(Dish di) throws InvalidIdException {
         dishServices.create(di);
     }
 
-    public void update(int id, Dish di) {
+    public void update(int id, Dish di) throws InvalidIdException {
         dishServices.update(id, di);
     }
 
-    public void remove(int id) {
+    public void remove(int id) throws InvalidIdException {
         dishServices.remove(id);
     }
 
-    public List<Dish> getAllByCategory (String cate) {
+    public List<Dish> getAllByCategory(String cate) {
         return dishServices.getAllByCategory(cate);
     }
 
@@ -39,7 +40,7 @@ public class DishController {
         return dishServices.getBestSeller();
     }
 
-    public void order(int id, int quantity) {
+    public void order(int id, int quantity) throws InvalidIdException {
         dishServices.order(id, quantity);
     }
 

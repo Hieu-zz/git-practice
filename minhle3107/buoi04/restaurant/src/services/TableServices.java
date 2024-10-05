@@ -1,5 +1,6 @@
 package services;
 
+import exceptions.InvalidIdException;
 import models.Table;
 import services.interfaces.ITableServices;
 
@@ -21,17 +22,24 @@ public class TableServices implements ITableServices {
     }
 
     @Override
-    public void create(Table table) {
+    public void create(Table table) throws InvalidIdException {
+        Table tableCheck = getById(table.getId());
+
+        if (tableCheck != null) {
+            throw new InvalidIdException("Id already exists");
+
+        }
+
         tableList.add(table);
+        System.out.println("Created table success!");
     }
 
     @Override
-    public void update(int id, Table table) {
+    public void update(int id, Table table) throws InvalidIdException {
         Table tableUpdate = getById(id);
 
         if (tableUpdate == null) {
-            System.out.println("Table not found");
-            return;
+            throw new InvalidIdException("Id does not exist");
         }
 
         tableUpdate.setName(table.getName());
@@ -41,12 +49,11 @@ public class TableServices implements ITableServices {
     }
 
     @Override
-    public void remove(int id) {
+    public void remove(int id) throws InvalidIdException {
         Table tableRemove = getById(id);
 
         if (tableRemove == null) {
-            System.out.println("Table not found");
-            return;
+            throw new InvalidIdException("Id does not exist");
         }
 
         tableList.remove(tableRemove);
@@ -93,12 +100,11 @@ public class TableServices implements ITableServices {
         return getAllWithOutChef;
     }
 
-    public void bookTable(int id, Table table) {
+    public void bookTable(int id, Table table) throws InvalidIdException {
         Table tableBook = getById(id);
 
         if (tableBook == null) {
-            System.out.println("Table not found");
-            return;
+            throw new InvalidIdException("Id table does not exist");
         }
         tableBook.setChef(table.getChef());
         System.out.println("Book room success");

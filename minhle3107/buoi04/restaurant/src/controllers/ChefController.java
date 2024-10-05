@@ -1,5 +1,6 @@
 package controllers;
 
+import exceptions.InvalidIdException;
 import models.Chef;
 import services.ChefServices;
 
@@ -23,19 +24,19 @@ public class ChefController {
         return chefServices.getAll();
     }
 
-    public void create(Chef chef) {
+    public void create(Chef chef) throws InvalidIdException {
         chefServices.create(chef);
     }
 
-    public void update(int id, Chef chef) {
+    public void update(int id, Chef chef) throws InvalidIdException {
         chefServices.update(id, chef);
     }
 
-    public void remove(int id) {
+    public void remove(int id) throws InvalidIdException {
         chefServices.remove(id);
     }
 
-    public List<Chef> getAllByStatus (boolean status) {
+    public List<Chef> getAllByStatus(boolean status) {
         return chefServices.getAllByStatus(status);
     }
 

@@ -1,6 +1,7 @@
 import controllers.ChefController;
 import controllers.DishController;
 import controllers.TableController;
+import exceptions.InvalidIdException;
 import models.Chef;
 import models.Dish;
 import models.Table;
@@ -145,14 +146,19 @@ public class Main {
     }
 
     public static void createdChef(ChefController chefController) {
-        Scanner sc = new Scanner(System.in);
-        Chef chef = new Chef();
+        try {
 
-        System.out.print("Id: ");
-        chef.setId(sc.nextInt());
-        inputChef(sc, chef);
+            Scanner sc = new Scanner(System.in);
+            Chef chef = new Chef();
 
-        chefController.create(chef);
+            System.out.print("Id: ");
+            chef.setId(sc.nextInt());
+            inputChef(sc, chef);
+
+            chefController.create(chef);
+        } catch (InvalidIdException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public static void inputChef(Scanner sc, Chef chef) {
@@ -167,21 +173,33 @@ public class Main {
     }
 
     public static void editedChef(ChefController chefController) {
-        Scanner sc = new Scanner(System.in);
-        Chef chef = new Chef();
+        try {
 
-        System.out.print("Enter chef id: ");
-        int id = sc.nextInt();
-        inputChef(sc, chef);
+            Scanner sc = new Scanner(System.in);
+            Chef chef = new Chef();
 
-        chefController.update(id, chef);
+            System.out.print("Enter chef id: ");
+            int id = sc.nextInt();
+            inputChef(sc, chef);
+
+            chefController.update(id, chef);
+        } catch (InvalidIdException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public static void removeChef(ChefController chefController) {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter chef id: ");
-        int id = sc.nextInt();
-        chefController.remove(id);
+
+        try {
+
+            Scanner sc = new Scanner(System.in);
+            System.out.print("Enter chef id: ");
+            int id = sc.nextInt();
+            chefController.remove(id);
+        } catch (InvalidIdException e) {
+            System.out.println(e.getMessage());
+        }
+
 
     }
 
@@ -200,14 +218,19 @@ public class Main {
     }
 
     public static void createdDish(DishController dishController) {
-        Scanner sc = new Scanner(System.in);
-        Dish dish = new Dish();
+        try {
 
-        System.out.print("Id: ");
-        dish.setId(sc.nextInt());
-        inputDish(sc, dish);
+            Scanner sc = new Scanner(System.in);
+            Dish dish = new Dish();
 
-        dishController.create(dish);
+            System.out.print("Id: ");
+            dish.setId(sc.nextInt());
+            inputDish(sc, dish);
+
+            dishController.create(dish);
+        } catch (InvalidIdException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public static void inputDish(Scanner sc, Dish dish) {
@@ -233,21 +256,31 @@ public class Main {
     }
 
     public static void editedDish(DishController dishController) {
-        Scanner sc = new Scanner(System.in);
-        Dish dish = new Dish();
+        try {
 
-        System.out.print("Enter dish id: ");
-        int id = sc.nextInt();
-        inputDish(sc, dish);
+            Scanner sc = new Scanner(System.in);
+            Dish dish = new Dish();
 
-        dishController.update(id, dish);
+            System.out.print("Enter dish id: ");
+            int id = sc.nextInt();
+            inputDish(sc, dish);
+
+            dishController.update(id, dish);
+        } catch (InvalidIdException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public static void removeDish(DishController dishController) {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter dish id: ");
-        int id = sc.nextInt();
-        dishController.remove(id);
+        try {
+
+            Scanner sc = new Scanner(System.in);
+            System.out.print("Enter dish id: ");
+            int id = sc.nextInt();
+            dishController.remove(id);
+        } catch (InvalidIdException e) {
+            System.out.println(e.getMessage());
+        }
 
     }
 
@@ -268,21 +301,26 @@ public class Main {
     }
 
     public static void createdTable(TableController tableController) {
-        Scanner sc = new Scanner(System.in);
-        Table table = new Table();
+        try {
 
-        System.out.print("Id: ");
-        table.setId(sc.nextInt());
+            Scanner sc = new Scanner(System.in);
+            Table table = new Table();
 
-        System.out.print("Name: ");
-        table.setName(sc.next());
+            System.out.print("Id: ");
+            table.setId(sc.nextInt());
 
-        System.out.print("Guest name: ");
-        table.setGuestName(sc.next());
+            System.out.print("Name: ");
+            table.setName(sc.next());
 
-        table.setChef(null);
+            System.out.print("Guest name: ");
+            table.setGuestName(sc.next());
 
-        tableController.create(table);
+            table.setChef(null);
+
+            tableController.create(table);
+        } catch (InvalidIdException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public static void getAllTable(TableController tableController) {
@@ -296,29 +334,39 @@ public class Main {
     }
 
     public static void editedTable(TableController tableController, ChefController chefController) {
-        Scanner sc = new Scanner(System.in);
-        Table table = new Table();
+        try {
 
-        System.out.print("Enter table id: ");
-        int id = sc.nextInt();
+            Scanner sc = new Scanner(System.in);
+            Table table = new Table();
 
-        System.out.print("Name: ");
-        table.setName(sc.next());
+            System.out.print("Enter table id: ");
+            int id = sc.nextInt();
 
-        System.out.print("Guest name: ");
-        table.setGuestName(sc.next());
+            System.out.print("Name: ");
+            table.setName(sc.next());
 
-        System.out.print("Chef id: ");
-        table.setChef(chefController.getById(sc.nextInt()));
-        tableController.update(id, table);
+            System.out.print("Guest name: ");
+            table.setGuestName(sc.next());
+
+            System.out.print("Chef id: ");
+            table.setChef(chefController.getById(sc.nextInt()));
+            tableController.update(id, table);
+        } catch (InvalidIdException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
 
     public static void removeTable(TableController tableController) {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter table id: ");
-        int id = sc.nextInt();
-        tableController.remove(id);
+        try {
+
+            Scanner sc = new Scanner(System.in);
+            System.out.print("Enter table id: ");
+            int id = sc.nextInt();
+            tableController.remove(id);
+        } catch (InvalidIdException e) {
+            System.out.println(e.getMessage());
+        }
 
     }
 
@@ -371,20 +419,25 @@ public class Main {
 
     public static void order(DishController dishController) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Danh sách món ăn: ");
-        if (dishController.getAll().isEmpty()) {
-            System.out.println("Empty dish list");
-        } else {
-            dishController.getAll().forEach(System.out::println);
+        try {
+
+            System.out.println("Danh sách món ăn: ");
+            if (dishController.getAll().isEmpty()) {
+                System.out.println("Empty dish list");
+            } else {
+                dishController.getAll().forEach(System.out::println);
+            }
+
+            System.out.print("Chọn id món ăn cần order: ");
+            int idDish = sc.nextInt();
+
+            System.out.println("Nhập số lượng: ");
+            int quantityDish = sc.nextInt();
+
+            dishController.order(idDish, quantityDish);
+        } catch (InvalidIdException e) {
+            System.out.println(e.getMessage());
         }
-
-        System.out.print("Chọn id món ăn cần order: ");
-        int idDish = sc.nextInt();
-
-        System.out.println("Nhập số lượng: ");
-        int quantityDish = sc.nextInt();
-
-        dishController.order(idDish, quantityDish);
     }
 
     public static void importDishes(DishController dishController) {

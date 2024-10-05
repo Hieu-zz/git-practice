@@ -1,5 +1,6 @@
 package services;
 
+import exceptions.InvalidIdException;
 import models.Chef;
 import services.interfaces.IChefServices;
 
@@ -20,17 +21,24 @@ public class ChefServices implements IChefServices {
     }
 
     @Override
-    public void create(Chef chef) {
+    public void create(Chef chef) throws InvalidIdException {
+
+        Chef chefCheck = getById(chef.getId());
+
+        if (chefCheck != null) {
+            throw new InvalidIdException("Id already exists");
+        }
+
         chefList.add(chef);
+        System.out.println("Cretated chef success!");
     }
 
     @Override
-    public void update(int id, Chef chef) {
+    public void update(int id, Chef chef) throws InvalidIdException {
         Chef chefUpdate = getById(id);
 
         if (chefUpdate == null) {
-            System.out.println("Chef not found");
-            return;
+            throw new InvalidIdException("Id does not exist");
         }
 
         chefUpdate.setName(chef.getName());
@@ -42,12 +50,11 @@ public class ChefServices implements IChefServices {
     }
 
     @Override
-    public void remove(int id) {
+    public void remove(int id) throws InvalidIdException {
         Chef chefRemove = getById(id);
 
         if (chefRemove == null) {
-            System.out.println("Chef not found");
-            return;
+            throw new InvalidIdException("Id does not exist");
         }
 
         chefList.remove(chefRemove);
