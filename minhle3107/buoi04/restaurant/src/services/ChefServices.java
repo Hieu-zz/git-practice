@@ -7,6 +7,8 @@ import services.interfaces.IChefServices;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.lang.System.*;
+
 public class ChefServices implements IChefServices {
     List<Chef> chefList = new ArrayList<>();
 
@@ -30,7 +32,7 @@ public class ChefServices implements IChefServices {
         }
 
         chefList.add(chef);
-        System.out.println("Cretated chef success!");
+        out.println("Created chef success!");
     }
 
     @Override
@@ -44,7 +46,7 @@ public class ChefServices implements IChefServices {
         chefUpdate.setName(chef.getName());
         chefUpdate.setPhoneNumber(chef.getPhoneNumber());
         chefUpdate.setStatus(chef.isStatus());
-        System.out.println("Update chef success");
+        out.println("Update chef success");
 
 
     }
@@ -58,7 +60,7 @@ public class ChefServices implements IChefServices {
         }
 
         chefList.remove(chefRemove);
-        System.out.println("Delete chef successfully");
+        out.println("Delete chef successfully");
     }
 
     @Override

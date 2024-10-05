@@ -11,6 +11,8 @@ import services.TableServices;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import static java.lang.System.*;
+
 public class Main {
     public static void main(String[] args) {
         ChefServices chefServices = new ChefServices();
@@ -21,7 +23,7 @@ public class Main {
         DishController dishController = new DishController(dishServices);
         TableController tableController = new TableController(tableServices);
 
-        Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(in);
 
         ChefActions chefActions = new ChefActions(chefController, sc);
         DishActions dishActions = new DishActions(dishController, sc);
@@ -30,39 +32,39 @@ public class Main {
         int choose = -1;
 
         do {
-            System.out.println("********************************** MENU **********************************");
-            System.out.println("********************************** Chef **********************************");
-            System.out.println("1. Thêm đầu bếp");
-            System.out.println("2. Hiển thị danh sách đầu bếp");
-            System.out.println("3. Sửa thông tin đầu bếp");
-            System.out.println("4. Xóa đầu bếp");
-            System.out.println("5. Danh sách bếp trưởng theo trạng thái");
+            out.println("********************************** MENU **********************************");
+            out.println("********************************** Chef **********************************");
+            out.println("1. Thêm đầu bếp");
+            out.println("2. Hiển thị danh sách đầu bếp");
+            out.println("3. Sửa thông tin đầu bếp");
+            out.println("4. Xóa đầu bếp");
+            out.println("5. Danh sách bếp trưởng theo trạng thái");
 
-            System.out.println("********************************** Món ăn **********************************");
-            System.out.println("6. Thêm món ăn");
-            System.out.println("7. Hiển thị danh sách món ăn");
-            System.out.println("8. Sửa thông tin món ăn");
-            System.out.println("9. Xóa món ăn");
-            System.out.println("10. Danh sách món ăn theo danh mục");
-            System.out.println("11. Món ăn bán chạy nhất");
+            out.println("********************************** Món ăn **********************************");
+            out.println("6. Thêm món ăn");
+            out.println("7. Hiển thị danh sách món ăn");
+            out.println("8. Sửa thông tin món ăn");
+            out.println("9. Xóa món ăn");
+            out.println("10. Danh sách món ăn theo danh mục");
+            out.println("11. Món ăn bán chạy nhất");
 
-            System.out.println("********************************** Bàn **********************************");
-            System.out.println("12. Thêm bàn ăn mới");
-            System.out.println("13. Hiển thị danh sách bàn");
-            System.out.println("14. Sửa thông tin bàn");
-            System.out.println("15. Xóa bàn");
-            System.out.println("16. Danh sách bàn đã có bếp trưởng phục vụ");
-            System.out.println("17. Danh sách bàn chưa có bếp trưởng phục vụ");
-            System.out.println("18. Tạo bàn ăn cho khách hàng:");
+            out.println("********************************** Bàn **********************************");
+            out.println("12. Thêm bàn ăn mới");
+            out.println("13. Hiển thị danh sách bàn");
+            out.println("14. Sửa thông tin bàn");
+            out.println("15. Xóa bàn");
+            out.println("16. Danh sách bàn đã có bếp trưởng phục vụ");
+            out.println("17. Danh sách bàn chưa có bếp trưởng phục vụ");
+            out.println("18. Tạo bàn ăn cho khách hàng:");
 
-            System.out.println("********************************************************************");
-            System.out.println("19. Gọi món");
-            System.out.println("20. Xuất thực đơn");
-            System.out.println("21. Nhập món ăn từ file");
-            System.out.println("********************************************************************");
-            System.out.println("0. Thoát!");
+            out.println("********************************************************************");
+            out.println("19. Gọi món");
+            out.println("20. Xuất thực đơn");
+            out.println("21. Nhập món ăn từ file");
+            out.println("********************************************************************");
+            out.println("0. Thoát!");
 
-            System.out.print("Nhập vào lựa chọn của bạn: ");
+            out.print("Nhập vào lựa chọn của bạn: ");
             try {
                 choose = sc.nextInt();
                 switch (choose) {
@@ -88,11 +90,11 @@ public class Main {
                     case 19 -> dishActions.order();
                     case 20 -> dishActions.exportDishes();
                     case 21 -> dishActions.importDishes();
-                    case 0 -> System.out.println("Hẹn gặp lại");
-                    default -> System.out.println("Vui lòng chọn lại!");
+                    case 0 -> out.println("Hẹn gặp lại");
+                    default -> out.println("Vui lòng chọn lại!");
                 }
             } catch (InputMismatchException e) {
-                System.out.println("Vui lòng nhập một số nguyên hợp lệ!");
+                out.println("Vui lòng nhập một số nguyên hợp lệ!");
                 sc.next(); // Xóa đầu vào không hợp lệ
             }
         } while (choose != 0);

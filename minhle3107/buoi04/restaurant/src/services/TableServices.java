@@ -7,6 +7,8 @@ import services.interfaces.ITableServices;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.lang.System.*;
+
 public class TableServices implements ITableServices {
 
     List<Table> tableList = new ArrayList<>();
@@ -31,7 +33,7 @@ public class TableServices implements ITableServices {
         }
 
         tableList.add(table);
-        System.out.println("Created table success!");
+        out.println("Created table success!");
     }
 
     @Override
@@ -45,7 +47,7 @@ public class TableServices implements ITableServices {
         tableUpdate.setName(table.getName());
         tableUpdate.setGuestName(table.getGuestName());
         tableUpdate.setChef(table.getChef());
-        System.out.println("Update table success");
+        out.println("Update table success");
     }
 
     @Override
@@ -57,7 +59,7 @@ public class TableServices implements ITableServices {
         }
 
         tableList.remove(tableRemove);
-        System.out.println("Delete table successfully");
+        out.println("Delete table successfully");
 
     }
 
@@ -107,6 +109,6 @@ public class TableServices implements ITableServices {
             throw new InvalidIdException("Id table does not exist");
         }
         tableBook.setChef(table.getChef());
-        System.out.println("Book table success");
+        out.println("Book table success");
     }
 }

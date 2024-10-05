@@ -4,7 +4,10 @@ import controllers.ChefController;
 import exceptions.InvalidIdException;
 import models.Chef;
 
+import java.util.List;
 import java.util.Scanner;
+
+import static java.lang.System.*;
 
 public class ChefActions {
     private final ChefController chefController;
@@ -15,64 +18,64 @@ public class ChefActions {
         this.sc = sc;
     }
 
-    public void getAllChef() {
-        if (chefController.getAll().isEmpty()) {
-            System.out.println("Empty chef list");
+    public static void displayChef(List<Chef> chefList) {
+        if (chefList.isEmpty()) {
+            out.println("Empty chef list");
         } else {
-            chefController.getAll().forEach(System.out::println);
+            chefList.forEach(out::println);
         }
+    }
+
+    public void getAllChef() {
+        displayChef(chefController.getAll());
     }
 
     public void createdChef() {
         try {
             Chef chef = new Chef();
-            System.out.print("Id: ");
+            out.print("Id: ");
             chef.setId(sc.nextInt());
             inputChef(chef);
             chefController.create(chef);
         } catch (InvalidIdException e) {
-            System.out.println(e.getMessage());
+            out.println(e.getMessage());
         }
     }
 
     private void inputChef(Chef chef) {
-        System.out.print("Name: ");
+        out.print("Name: ");
         chef.setName(sc.next());
-        System.out.print("Phone: ");
+        out.print("Phone: ");
         chef.setPhoneNumber(sc.next());
-        System.out.print("Status: ");
+        out.print("Status: ");
         chef.setStatus(sc.nextBoolean());
     }
 
     public void editedChef() {
         try {
             Chef chef = new Chef();
-            System.out.print("Enter chef id: ");
+            out.print("Enter chef id: ");
             int id = sc.nextInt();
             inputChef(chef);
             chefController.update(id, chef);
         } catch (InvalidIdException e) {
-            System.out.println(e.getMessage());
+            out.println(e.getMessage());
         }
     }
 
     public void removeChef() {
         try {
-            System.out.print("Enter chef id: ");
+            out.print("Enter chef id: ");
             int id = sc.nextInt();
             chefController.remove(id);
         } catch (InvalidIdException e) {
-            System.out.println(e.getMessage());
+            out.println(e.getMessage());
         }
     }
 
     public void getAllChefByStatus() {
-        System.out.print("enter status (true/false): ");
+        out.print("enter status (true/false): ");
         boolean status = sc.nextBoolean();
-        if (chefController.getAllByStatus(status).isEmpty()) {
-            System.out.println("Empty chef list");
-        } else {
-            chefController.getAllByStatus(status).forEach(System.out::println);
-        }
+        displayChef(chefController.getAllByStatus(status));
     }
 }

@@ -7,6 +7,8 @@ import services.interfaces.IDishServices;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.lang.System.*;
+
 public class DishServices implements IDishServices {
 
     List<Dish> dishList = new ArrayList<>();
@@ -43,7 +45,7 @@ public class DishServices implements IDishServices {
         dishUpdate.setIngredient(dish.getIngredient());
         dishUpdate.setCategory(dishUpdate.getCategory());
         dishUpdate.setCount(dish.getCount());
-        System.out.println("Update dish success");
+        out.println("Update dish success");
 
     }
 
@@ -56,7 +58,7 @@ public class DishServices implements IDishServices {
         }
 
         dishList.remove(dishRemove);
-        System.out.println("Delete dish successfully");
+        out.println("Delete dish successfully");
 
     }
 
@@ -108,11 +110,11 @@ public class DishServices implements IDishServices {
         }
 
         dishOrder.order(quantity);
-        System.out.println("Order successfully");
+        out.println("Order successfully");
     }
 
     @Override
-    public void importDishes(String filePath) throws InvalidIdException {
+    public void importDishes(String filePath) {
         List<Dish> dishImport = utils.DishLoader.loadDishesFromFile(filePath);
         List<Integer> listOfIdsAlreadyExists = new ArrayList<>();
 
@@ -125,17 +127,17 @@ public class DishServices implements IDishServices {
         }
 
         for (Integer idExists : listOfIdsAlreadyExists) {
-            System.out.println("Id " + idExists + " already exists");
+            out.println("Id " + idExists + " already exists");
         }
 
-        System.out.println("Data imported successfully.");
+        out.println("Data imported successfully.");
     }
 
     @Override
     public void exportDishes(String filePath) {
 
         utils.DishExporter.exportDishesToFile(dishList, filePath);
-        System.out.println("Data exported successfully.");
+        out.println("Data exported successfully.");
 
     }
 
