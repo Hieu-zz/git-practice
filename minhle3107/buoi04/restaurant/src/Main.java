@@ -120,6 +120,10 @@ public class Main {
                     order(dishController);
                     break;
                 case 20:
+                    exportDishes(dishController);
+                    break;
+                case 21:
+                    importDishes(dishController);
                     break;
                 case 0:
                     System.out.println("Hẹn gặp lại");
@@ -381,5 +385,22 @@ public class Main {
         int quantityDish = sc.nextInt();
 
         dishController.order(idDish, quantityDish);
+    }
+
+    public static void importDishes(DishController dishController) {
+        String filePathToImport = System.getProperty("user.dir") + "/data/input/mon-an.txt";
+
+        dishController.importDishes(filePathToImport);
+
+    }
+
+    public static void exportDishes(DishController dishController) {
+
+
+        String filePathToExport = System.getProperty("user.dir") + "/data/output/menu.txt";
+
+
+        dishController.exportDishes(filePathToExport);
+
     }
 }

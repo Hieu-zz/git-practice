@@ -20,4 +20,8 @@ public interface IDishServices {
     Dish getBestSeller();
 
     void order(int id, int quantity);
+
+    void importDishes(String filePath);
+
+    void exportDishes(String filePath);
 }

@@ -1,0 +1,6 @@
+1,Bún đậu,Bún,Bún,0
+2,Phở bò,Thịt bò,Phở,0
+3,Bánh mỳ,Bột mỳ,Đồ ăn nhanh,0
+4,Phở,Bánh phở,Phở,10
+5,Bún chả,Bún,Bún,5
+6,Cơm tấm,Cơm,Cơm,8

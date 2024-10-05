@@ -43,4 +43,12 @@ public class DishController {
         dishServices.order(id, quantity);
     }
 
+    public void importDishes(String filePath) {
+        dishServices.importDishes(filePath);
+    }
+
+    public void exportDishes(String filePath) {
+        dishServices.exportDishes(filePath);
+    }
+
 }

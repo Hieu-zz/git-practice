@@ -107,4 +107,24 @@ public class DishServices implements IDishServices {
         System.out.println("Order successfully");
     }
 
+    @Override
+    public void importDishes(String filePath) {
+
+        List<Dish> dishImport = utils.DishLoader.loadDishesFromFile(filePath);
+
+        dishList.addAll(dishImport);
+
+        System.out.println("Data imported successfully.");
+
+
+    }
+
+    @Override
+    public void exportDishes(String filePath) {
+
+        utils.DishExporter.exportDishesToFile(dishList, filePath);
+        System.out.println("Data exported successfully.");
+
+    }
+
 }
