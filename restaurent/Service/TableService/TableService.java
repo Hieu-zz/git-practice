@@ -15,12 +15,14 @@ public class TableService implements ITableSevice{
         tables.add(new Table(2,"ban 2", "Vinh", null));
     }
     @Override
+    //lay tat ca danh sach
     public void getAll() {
         for (Table table :tables){
             System.out.println(table.toString());
         }
     }
 
+    //tim theo id
     public Table getByID(int ID) {
         for (Table table : tables){
             if (table.getID() == ID){
@@ -31,6 +33,7 @@ public class TableService implements ITableSevice{
     }
 
     @Override
+    //Them ban ghi moi
     public void create() {
         System.out.println("moi nhap ID");
         int ID = sc.nextInt();
@@ -44,6 +47,7 @@ public class TableService implements ITableSevice{
     }
 
     @Override
+    //Sua thong tin
     public void update() {
         int ID = sc.nextInt();
         Table table = getByID(ID);
@@ -55,6 +59,7 @@ public class TableService implements ITableSevice{
     }
 
     @Override
+    //Xoa ban ghi
     public void delete() {
         int ID = sc.nextInt();
         Table table = getByID(ID);
@@ -63,6 +68,7 @@ public class TableService implements ITableSevice{
     }
 
     @Override
+    // Danh sach ban co bep truong
     public void getAllWithChef() {
         List<Table> tables1 = new ArrayList<>();
         for (Table table :tables){
@@ -76,9 +82,10 @@ public class TableService implements ITableSevice{
     }
 
     @Override
+    // Danh sach ban khong co bep truong
     public void getAllWithoutChef() {
         List<Table> tables1 = new ArrayList<>();
-        for (Table table: tables1){
+        for (Table table: tables){
             if (table.getChef() == null ){
                 tables1.add(table);
             }

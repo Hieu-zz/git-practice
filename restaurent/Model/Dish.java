@@ -1,6 +1,8 @@
 package restaurent.Model;
 
-public class Dish {
+import java.io.Serializable;
+
+public class Dish implements Serializable {
     private int ID, count;
     private String name, ingredient, category;
 
@@ -65,4 +67,6 @@ public class Dish {
                 ", category='" + category + '\'' +
                 '}';
     }
+
+
 }

@@ -6,6 +6,6 @@ import restaurent.Service.IBaseService;
 import java.util.List;
 
 public interface IChefService extends IBaseService {
-    void getAllByStatus();
+    List<Chef> getAllByStatus(boolean status);
 
 }

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class ChefService implements IChefService{
+public class    ChefService implements IChefService{
     List<Chef> chefs = new ArrayList<>();
     Scanner sc = new Scanner(System.in);
     public ChefService(){
@@ -15,11 +15,25 @@ public class ChefService implements IChefService{
         chefs.add(new Chef(3, "Nguyen Van C","0929557338", true));
     }
     @Override
-    public void getAllByStatus() {
-
+    public List<Chef> getAllByStatus(boolean status) {
+        List<Chef> workingChef = new ArrayList<>();
+        List<Chef>  absentChef = new ArrayList<>();
+        for (Chef chef : chefs){
+            if (chef.isStatus()){
+                workingChef.add(chef);
+            }else {
+                absentChef.add(chef);
+            }
+        }
+        if ( status == true){
+            return workingChef;
+        }else {
+            return absentChef;
+        }
     }
 
     @Override
+    //lay danh sach
     public void getAll() {
         for (Chef chef :chefs){
             System.out.println(chef.toString());
@@ -27,6 +41,7 @@ public class ChefService implements IChefService{
     }
 
 
+    //lay theo id
     public Chef getByID(int ID) {
         for(Chef chef :chefs){
             if(chef.getID() == ID){
@@ -37,6 +52,7 @@ public class ChefService implements IChefService{
     }
 
     @Override
+    //Xoa bep truong
     public void create() {
         System.out.println("Moi nhap vao id");
         int ID = sc.nextInt();
@@ -52,6 +68,7 @@ public class ChefService implements IChefService{
     }
 
     @Override
+    //Sua thong tin
     public void update() {
         int ID = sc.nextInt();
         Chef chef = getByID(ID);
@@ -65,6 +82,7 @@ public class ChefService implements IChefService{
     }
 
     @Override
+    //Xoa thong tin
     public void delete() {
         int ID = sc.nextInt();
         chefs.remove(getByID(ID));
