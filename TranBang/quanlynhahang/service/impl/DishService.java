@@ -27,7 +27,7 @@ public class DishService implements IDishService {
     public Dish getById(int id) {
         for (Dish dish: dishes){
             if(dish.getID()==id){
-                System.out.println(dish);
+                return dish;
             }
         }
         return null;
@@ -72,24 +72,39 @@ public class DishService implements IDishService {
     }
     @Override
     public List<Dish> getAllByCategory(String category) {
+        List<Dish> newDish = new ArrayList<>();
         for (Dish dish: dishes){
-            if(Objects.equals(dish.getCategory(), category)){
-                show(dishes);
+            if(dish.getCategory().contains(category)){
+                newDish.add(dish);
+                System.out.println(dish);
             }
         }
-        return null;
+        return newDish;
     }
 
     @Override
     public Dish getBestSeller() {
-        return null;
+        Dish bestDish = dishes.get(0);
+        for (Dish dish : dishes) {
+            if (dish.getCount() > bestDish.getCount()) {
+                bestDish = dish;
+            }
+        }
+        System.out.println("mon ban chay nhat: " + bestDish);
+        return bestDish;
     }
 
     @Override
-    public void goiMon() {
-        getAll();
-
+    public void order(int idDish, int quantity) {
+        Dish dish= getById(idDish);
+        if (dish == null) {
+            System.out.println("kh ton tai mon an day");
+            return;
+        }
+        dish.setCount(dish.getCount() + quantity);
+        System.out.println("ban da goi mon thanh cong");
     }
+
 
 
 }

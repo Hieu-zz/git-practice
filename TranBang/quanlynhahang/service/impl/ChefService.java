@@ -15,7 +15,7 @@ public class ChefService implements IChefService {
     @Override
     public List<Chef> getAll() {
         if(chefs.isEmpty()){
-            System.out.println("Khong co mon an");
+            System.out.println("Khong co bep truong");
             return new ArrayList<>();
         }else{
             for(Chef chef:chefs){
@@ -29,32 +29,24 @@ public class ChefService implements IChefService {
     public Chef getById(int id) {
         for(Chef chef:chefs){
             if(chef.getId()==id){
-                System.out.println(chef);
+                return chef;
             }
         }
         return null;
     }
 
     @Override
-    public void create() {
-        System.out.println("Nhap id bep truong");
-        int id =sc.nextInt();
-        sc.nextLine();
-        System.out.println("Nhap ten bep truong");
-        String name = sc.nextLine();
-        System.out.println("Nhap so dien thoai");
-        String phone= sc.nextLine();
-        System.out.println("Nhap trang thai");
-        boolean status = sc.nextBoolean();
-
-        Chef chef1 = new Chef(id,name,phone,status);
-        chefs.add(chef1);
-        System.out.println("Them bep truong thanh cong");
+    public void create(Chef chef) {
+        if(getById(chef.getId())==null){
+            chefs.add(chef);
+        }else{
+            System.out.println("ID cua bep truong an da ton tai");
+        }
     }
 
     @Override
     public void update() {
-        System.out.println("Id cua bep truong muon xoa");
+        System.out.println("Id cua bep truong muon cap nhat");
         int idChef = sc.nextInt();
         sc.nextLine();
         Chef c= getById(idChef);

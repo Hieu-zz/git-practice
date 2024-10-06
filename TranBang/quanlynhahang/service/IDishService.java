@@ -13,5 +13,5 @@ public interface IDishService {
     void delete(int id);
     List<Dish> getAllByCategory(String category);
     Dish getBestSeller();
-    void goiMon();
+    void order(int idDish, int quantity);
 }

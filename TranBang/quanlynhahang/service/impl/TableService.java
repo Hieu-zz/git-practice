@@ -26,12 +26,12 @@ public class TableService implements ITableService {
 
     @Override
     public Table getById(int id) {
-       for (Table table : tables){
-           if(table.getID()==id){
-               System.out.println(table);
-           }
-       }
-       return null;
+        for (Table table : tables){
+            if(table.getID()==id){
+                System.out.println(table);
+            }
+        }
+        return null;
     }
 
     @Override
@@ -44,8 +44,8 @@ public class TableService implements ITableService {
     }
 
     @Override
-    public void update(Table table) {
-        Table table1 = getById(table.getID());
+    public void update(Table table,int id) {
+        Table table1 = getById(id);
         if(table1!=null){
             table1.setName(table.getName());
             table1.setGuestName(table.getGuestName());
@@ -64,5 +64,28 @@ public class TableService implements ITableService {
         }else {
             System.out.println("Khong tim thay thong tin cua ban");
         }
+    }
+
+    @Override
+    public List<Table> getAllTableWithChef() {
+        List<Table> t = new ArrayList<>();
+        for(Table table:tables){
+            if(table.getChef()!=null){
+                t.add(table);
+                System.out.println(t);
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public List<Table> getAllTableWithoutChef() {
+        List<Table> t1 = new ArrayList<>();
+        for(Table table:tables){
+            if(table.getChef()==null){
+                t1.add(table);
+            }
+        }
+        return null;
     }
 }

@@ -6,7 +6,8 @@ import org.example.quanlynhahang.service.impl.DishService;
 import java.util.List;
 
 public class DishController {
-    public static DishService _service;
+
+    public DishService _service;
     public DishController(DishService service){
         _service = service;
     }
@@ -25,8 +26,13 @@ public class DishController {
     public void deleteDish(int id){
         _service.delete(id);
     }
-    public void getAllByCategory(String Category){
-        _service.getAllByCategory(Category);
+    public void getAllDishByCategory(String category){
+        _service.getAllByCategory(category);
     }
-
+    public void getBestSeller(){
+        _service.getBestSeller();
+    }
+    public void order(int idDish,int quantity){
+        _service.order(idDish,quantity);
+    }
 }

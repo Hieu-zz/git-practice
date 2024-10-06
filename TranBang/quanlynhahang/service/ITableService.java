@@ -10,7 +10,8 @@ public interface ITableService {
     List<Table> getAll();
     Table getById(int id);
     void create(Table table);
-    void update(Table table);
+    void update(Table table,int id);
     void delete(int id);
-
+    List<Table> getAllTableWithChef();
+    List<Table> getAllTableWithoutChef();
 }

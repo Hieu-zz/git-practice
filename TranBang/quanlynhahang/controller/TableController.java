@@ -1,14 +1,12 @@
 package org.example.quanlynhahang.controller;
 
-import org.example.quanlynhahang.models.Dish;
 import org.example.quanlynhahang.models.Table;
-import org.example.quanlynhahang.service.impl.DishService;
 import org.example.quanlynhahang.service.impl.TableService;
 
 import java.util.List;
 
 public class TableController {
-    public static TableService _service;
+    public TableService _service;
     public TableController(TableService service){
         _service = service;
     }
@@ -21,10 +19,16 @@ public class TableController {
     public  void createTable(Table table){
         _service.create(table);
     }
-    public void updateTable(Table table){
-        _service.update(table);
+    public void updateTable(Table table,int id){
+        _service.update(table,id);
     }
     public  void deleteTable(int id){
         _service.delete(id);
+    }
+    public void getAllTableWithChef(){
+        _service.getAllTableWithChef();
+    }
+    public void getAllTableWithOutChef(){
+        _service.getAllTableWithoutChef();
     }
 }
