@@ -58,7 +58,6 @@ public class DishService {
             for (Dish dish : dishes) {
                 FileUtils.writeObjectToFile(objOut, dish);
             }
-            System.out.println("Đã ghi danh sách Person vào file.");
         } catch (Exception e) {
             System.out.println(e.getMessage());
             e.getCause();
