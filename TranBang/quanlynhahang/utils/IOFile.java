@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class IOFile {
-    private String file = "E:/CY_VietNam/Buoi4_QuanLy/DataOutPut.txt";
+    private String file = "E:\\Kì 9\\CY\\menu.txt";
     public void writeFile(List<Dish> dishes) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
             for (Dish dish : dishes) {
